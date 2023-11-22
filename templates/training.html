@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Status</title>
+    <!-- Include any necessary CSS or stylesheets -->
+</head>
+<body>
+    <h1>Training Status</h1>
+    <div id="status-container">
+        <p>Current Status: <span id="training-status">Loading...</span></p>
+
+        <!-- Display download button only when training is finished -->
+        <div id="download-button" style="display: none;">
+            <a href="/download/best.py" download><button>Download best.py</button></a>
+        </div>
+    </div>
+
+    <script>
+        function updateTrainingStatus() {
+            fetch('/training_status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('training-status').innerText = data.status;
+
+                    // Display the download button if training is finished
+                    if (data.status === 'Finished Training') {
+                        document.getElementById('download-button').style.display = 'block';
+                    }
+                });
+        }
+
+        // Update status every 3 seconds (adjust timing as needed)
+        setInterval(updateTrainingStatus, 3000);
+
+        // Initial status update when the page loads
+        updateTrainingStatus();
+    </script>
+</body>
+</html>
