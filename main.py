@@ -5,8 +5,8 @@ import subprocess
 from flask import Flask, render_template, request, send_from_directory, jsonify
 import threading
 
-
 app = Flask(__name__)
+
 
 # Clone the repository and unzip the 'yolov5' file
 def setup_environment():
@@ -42,8 +42,6 @@ def setup_environment():
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
 
-# Run the setup function when the app starts
-setup_environment()
 
 # Specify the download folder
 download_folder = 'yolov5train/yolov5/runs/train/exp/weights/best.pt'
@@ -57,9 +55,21 @@ app.config['DOWNLOAD_FOLDER'] = download_folder
 os.makedirs(download_folder, exist_ok=True)
 
 
-@app.route('/')
+def setup_environment_thread():
+    setup_environment()
+
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        if request.form.get('start_pressed') == 'true':
+            # Start a separate thread to execute setup_environment()
+            setup_thread = threading.Thread(target=setup_environment_thread)
+            setup_thread.start()
+
+        return render_template('index.html')  # Redirect to index.html after Start is pressed
+
+    return render_template('session.html')
 
 
 @app.route('/upload', methods=['POST'])
@@ -124,7 +134,9 @@ def upload_file():
 def training_page():
     return render_template('training.html')
 
+
 current_status = "Not Training"  # Initialize with default value
+
 
 @app.route('/training_status', methods=['GET'])
 def get_training_status():
