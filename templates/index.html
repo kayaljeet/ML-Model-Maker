@@ -2,53 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload and Download</title>
+    <title>Model Trainer - Session Page</title>
+    <!--<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='index.css') }}">-->
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
-    <h1>File Upload and Download</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
-        <label for="file">Choose a file:</label>
-        <input type="file" name="file" id="file" required>
-        <br>
-        <label for="num_classes">Number of Classes (between 1 and 10):</label>
-        <input type="number" name="num_classes" id="num_classes" min="1" max="10" required>
-        <button type="button" onclick="showClassInput()">OK</button>
-        <br>
-        <div id="classInputs"></div>
-        <br>
-        <input type="submit" value="Upload">
-    </form>
 
-    <script>
-        function showClassInput() {
-            var numClasses = document.getElementById("num_classes").value;
-            var classInputsDiv = document.getElementById("classInputs");
-
-            // Clear existing inputs
-            classInputsDiv.innerHTML = "";
-
-            for (var i = 1; i <= numClasses; i++) {
-                var inputLabel = document.createElement("label");
-                inputLabel.for = "class_name_" + i;
-                inputLabel.innerHTML = "Class Name " + i + ":";
-
-                var inputElement = document.createElement("input");
-                inputElement.type = "text";
-                inputElement.name = "class_name";
-                inputElement.id = "class_name_" + i;
-                inputElement.required = true;
-
-                // Add a line break
-                var lineBreak = document.createElement("br");
-
-                // Append the label, input, and line break to the div
-                classInputsDiv.appendChild(inputLabel);
-                classInputsDiv.appendChild(inputElement);
-                classInputsDiv.appendChild(lineBreak);
-            }
-        }
-    </script>
+    <h1>Welcome to the Model Trainer home page</h1>
+    <div>
+    <p></p>
+     <h2>Login</h2>
+   </div>
+    <div class="login-box">
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <input type="password" name="password" placeholder="Password" required><br><br>
+            <input type="submit" value="Login">
+            <input type="hidden" name="start_pressed" value="true">
+        </form>
+    </div>
+    <div>
+       <br><br> Not yet signed up?<a href="/signup">signup here</a><br><br>
+    </div>
+     <!--<a href="/login">Login</a><br><br>-->
 </body>
 </html>

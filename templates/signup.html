@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("password_confirm").value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <div class="login-box">
+        <form action="/signup" method="post" onsubmit="return validateForm()">
+            <input type="text" name="firstname" placeholder="First Name" required><br><br>
+            <input type="text" name="lastname" placeholder="Last Name" required><br><br>
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <input type="text" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Valid email format required"><br><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+            <input type="password" id="password_confirm" name="password_confirm" placeholder="Re-enter Password" required><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+    <div>
+        <br><br> Go back to <a href="/">home</a><br><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* Resetting default margin and padding */
+body, h1, p, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting background color and font for the body */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+}
+
+/* Styling the heading */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Styling the paragraph */
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Styling the form */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling the submit button */
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on submit button */
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Hide the default browser outline on focus for the submit button */
+input[type="submit"]:focus {
+    outline: none;
+}
