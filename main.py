@@ -45,9 +45,12 @@ def initial_setup():
     if os.path.exists(repo_path):
         return 1
     else:
-        # Clone the repository
-        subprocess.run(['git', 'clone', 'https://github.com/kayaljeet/yolov5train.git'])
+        # Change this to the repository containing yolov5.zip
+        subprocess.run(['git', 'clone', 'path/to/repo/containing/the yolov5.zip file'])
 
+        #Change the 'cloned repo name' to the actual repo name
+        os.rename('cloned repo name', 'yolov5train')
+        
         # Unzip the 'yolov5' file
         shutil.unpack_archive(os.path.join(repo_path, 'yolov5.zip'), repo_path)
 
