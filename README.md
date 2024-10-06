@@ -1,7 +1,7 @@
 # Model Maker
 This project/application is a tool to train ML models in form of a PyTorch file, using just a image dataset and Classification names.
 
-##How to use:
+## How to use:
 
 ## Setup 
 Clone the Model Maker repository and:
