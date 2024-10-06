@@ -55,6 +55,10 @@ data/
 
 Compress this 'data' directory to obtain a `data.zip` file and upload this to the Model Maker, as mentioned previously.
 
+## To Test
+
+To test the trained model, refer to [ML-Model-Tester](https://github.com/kayaljeet/ML-Model-Tester.git)
+
 ## Remember
 
 The number of classes entered in the Model Maker should be equal to the number of classes in the `classes.txt` file, and the class names entered should be in the same order as in the `classes.txt` file.
