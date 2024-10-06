@@ -12,10 +12,11 @@ Run the `python main.py`
 Open the webpage, of the flask application (`main.py`), and if signup, if already haven't previously, then proceed to login
 
 After logging in, the option to upload a file and enter number of classes will appear:
-1.Upload the dataset file(in zip format)
-2.Enter number of classes
-3.Enter the name of each class (the order in which the class names are entered should be the same as the order in which they are present in the `classes.txt` in the dataset)
-4.Upload
+
+### 1.Upload the dataset file(in zip format)
+### 2.Enter number of classes
+### 3.Enter the name of each class (the order in which the class names are entered should be the same as the order in which they are present in the `classes.txt` in the dataset)
+### 4.Upload
 
 The training page will appear, displaying the status, and will throw an error, if any occurs, such as:
 Invalid dataset format
