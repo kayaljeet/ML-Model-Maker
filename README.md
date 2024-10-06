@@ -38,13 +38,13 @@ And all the images under each subdirectory in 'images' directory
 
 ### The structure will be:
 
-`\data
+ \data
 	-\images
 		-\training
 		-\validation
 	-\labels
 		-\training
-		-\validation `
+		-\validation 
   
 Compress this 'data' directory to obtain a `data.zip` and upload this to the ModelMaker, as mentioned previously 
 
